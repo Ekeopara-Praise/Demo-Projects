@@ -1,42 +1,31 @@
-# 🚀 Demo Projects & PoCs
+# Machine Learning-Based Decline Curve Analysis (DCA-ML)
 
-[![GitHub License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python Version](https://img.shields.io/badge/Python-3.11-brightgreen.svg)](https://www.python.org/)
-[![Framework](https://img.shields.io/badge/UI-Streamlit-FF4B4B.svg)](https://streamlit.io/)
-
-> A centralized repository for building, testing, and tracking **Proof-of-Concepts (PoCs)**, rapid prototypes, and initial technical demos before deploying them into full Minimum Viable Products (MVPs).
+An end-to-end Python pipeline and web application designed to forecast oil and gas production using machine learning and deep learning models. This repository implements data preprocessing, feature engineering, neural network sequence modeling, and interactive visualization for field production data.
 
 ---
 
-## 📌 Repository Overview
+## 📌 Project Overview
 
-This repository serves as a testing laboratory for engineering workflows, machine learning models, and software architectures. Each subfolder represents a standalone demo project equipped with its own modular source code, sample datasets, and documentation.
+Traditional Decline Curve Analysis (DCA)—such as Arps' empirical equations—often struggles with complex operational dynamics, frequent well shut-ins, and multi-variable dependencies (e.g., choke variations and tubing head pressure). 
 
----
+This project leverages data-driven models (including LSTMs and multi-layer perceptrons) to learn reservoir rate decline trends directly from active production history while incorporating operational parameters like Tubing Head Pressure (THP) and choke sizes.
 
-## 🗂️ Demo Projects Directory
-
-| Project Name | Domain / Tech Stack | Target MVP | Status | Link |
-| :--- | :--- | :--- | :---: | :---: |
-| **ML-Decline-Curve-Analysis** | Python • Streamlit • Scikit-Learn • Plotly | Streamlit DCA Web App | 🟡 In Progress | [View Project](./ML-Decline-Curve-Analysis) |
-| **Demo-Project-02** | *Tech Stack* | *Target Application* | ⚪ Planned | [View Project](./Demo-Project-02) |
-| **Demo-Project-03** | *Tech Stack* | *Target Application* | ⚪ Planned | [View Project](./Demo-Project-03) |
+### Key Features
+- **Zero-Production Filtering:** Preprocessing logic to drop non-producing/shut-in periods, allowing models to learn pure reservoir decline physics.
+- **Physics-Informed Feature Engineering:** Automatic computation of cumulative production ($N_p$) and normalized producing time ($t/t_{max}$).
+- **Sequence Transformation:** Sliding-window tensor generation designed for recurrent time-series models.
+- **Multi-Axis Production Plotting:** Custom visualization utilities built with Matplotlib for synchronized $2 \times 1$ production performance tracking (Oil Rate, Cum Oil, GOR, Water Cut, THP, and Choke Size).
 
 ---
 
-## 📂 Project Structure
+## 📁 Repository Structure
 
 ```text
-Demo-Projects/
-│
-├── README.md                          # Repository overview and master navigation
-├── .gitignore                         # Master git ignore rules
-│
-├── ML-Decline-Curve-Analysis/         # Demo 01: Machine Learning DCA Tool
-│   ├── README.md                      # Detailed project documentation
-│   ├── app.py                         # Streamlit dashboard
-│   ├── requirements.txt               # Dependencies
-│   ├── data/                          # Sample production CSVs
-│   └── src/                           # Preprocessing & MLP ML engine
-│
-└── [Future-Demo-Folder]/              # Demo 02...
+├── data/
+│   └── raw_production.csv       # Field production dataset
+├── preprocess.py                # Preprocessing pipeline & sequence generator
+├── plot_utils.py                # Custom production plotting routines
+├── train.py                     # Model training script
+├── app.py                       # Streamlit web application
+├── requirements.txt             # Project dependencies
+└── README.md                    # Project documentation
