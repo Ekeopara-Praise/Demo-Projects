@@ -18,7 +18,7 @@ This repository serves as a testing laboratory for engineering workflows, machin
 
 | Project Name | Domain / Tech Stack | Target MVP | Status | Link |
 | :--- | :--- | :--- | :---: | :---: |
-| **ML-Decline-Curve-Analysis** | Python • Streamlit • Scikit-Learn • Plotly | Streamlit DCA Web App | 🟡 In Progress | [View Project](./ML-Decline-Curve-Analysis) |
+| **ML-Decline-Curve-Analysis** | Python • Streamlit • Scikit-Learn • Plotly | Streamlit DCA Web App | 🟡 In Progress | [View Project](./DCA-ML) |
 | **Demo-Project-02** | *Tech Stack* | *Target Application* | ⚪ Planned | [View Project](./Demo-Project-02) |
 | **Demo-Project-03** | *Tech Stack* | *Target Application* | ⚪ Planned | [View Project](./Demo-Project-03) |
 
